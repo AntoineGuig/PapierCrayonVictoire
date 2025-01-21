@@ -10,8 +10,11 @@ header{
     position:relative;
     top: 0;
 }
+.content-body {
+    display: block;
+    position: relative;
+}
 nav{
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -212,7 +215,6 @@ nav .navbar .links li:hover .js-sub-menu{
         display: block;
     }
     nav .navbar .nav-links{
-        position: fixed;
         top: 0;
         left: -100%;
         display: block;
@@ -285,7 +287,7 @@ nav .navbar .links li:hover .js-sub-menu{
         display: none;
     }
 
-   .links li a:hover {
+    .links li a:hover {
         color: black;
     }
     nav .navbar .links li:hover .htmlCss-sub-menu,
