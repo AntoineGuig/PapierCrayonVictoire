@@ -1,6 +1,6 @@
 <?php
 try {
-    $dsn = 'mysql:host=137.116.243.181;dbname=PapierCrayonVictoire;charset=utf8';
+    $dsn = 'mysql:host=localhost;dbname=PapierCrayonVictoire;charset=utf8';
     $username = 'db_etu';
     $password = 'N3twork!';
     //$port = '5619';
