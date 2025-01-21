@@ -10,8 +10,10 @@ if (!empty($login) && !empty($password)) {
     $stmt->bindParam(':email', $login);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    var_dump($user);
+    var_dump($password);
 
-    if ($user && hash('sha256', $password) === $user['password']) {
+    if ($user && hash('sha256', $password) === hash('sha256', $user['password'])) {
         session_start();
         $_SESSION['prenom'] = $user['prenom'];
         $_SESSION['nom'] = $user['nom'];
