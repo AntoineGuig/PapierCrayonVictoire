@@ -12,11 +12,11 @@ if (!empty($login) && !empty($password)) {
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && hash('sha256', $password) === $user['password']) {
+    if ($user && hash('sha256', $password) === $user['motDePasse']) {
         session_start();
         $_SESSION['prenom'] = $user['prenom'];
         $_SESSION['nom'] = $user['nom'];
-        header("Location: ../pages/accueil.php");
+        header('Location: ../pages/accueil.php');
         exit();
     } else {
         $error = "Adresse e-mail ou mot de passe incorrect.";
