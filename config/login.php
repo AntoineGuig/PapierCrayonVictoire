@@ -16,7 +16,7 @@ if (!empty($login) && !empty($password)) {
         session_start();
         $_SESSION['prenom'] = $user['prenom'];
         $_SESSION['nom'] = $user['nom'];
-        header('Location: ../pages/accueil.php');
+        header("Location: https://google.com");
         exit();
     } else {
         $error = "Adresse e-mail ou mot de passe incorrect.";
