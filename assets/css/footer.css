@@ -1,115 +1,65 @@
-/* Importing Google font - Open Sans */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
+
 .footer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 1280px;
-    width: 95%;
-    background: #10182F;
-    border-radius: 6px;
+    position: relative; /* Ajustement pour garder le footer visible */
+    padding: 20px 0px 20px 0px; /* Ajout de padding global */
+    width: 100%;
+    background: #EAA129;
+    border-radius: 5px;
+    text-align: center; /* Centrer tout le contenu horizontalement */
 }
+
 .footer .footer-row {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 3.5rem;
-    padding: 60px;
+    flex-direction: column; /* Organiser les éléments verticalement */
+    align-items: center; /* Centrer les éléments horizontalement */
 }
+
+.footer .footer-row > img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px; /* Espace entre l'image et le contenu suivant */
+}
+
 .footer-row .footer-col h4 {
     color: #fff;
-    font-size: 1.2rem;
-    font-weight: 400;
-}
-.footer-col .links {
-    margin-top: 20px;
-}
-.footer-col .links li {
-    list-style: none;
+    font-size: 20px;
+    font-weight: 500;
     margin-bottom: 10px;
 }
+
+.footer-col .links {
+    display: flex; /* Permet de mettre les liens sur une seule ligne */
+    justify-content: center; /* Centrer les liens */
+    gap: 25px; /* Espace entre les liens */
+    margin-top: 10px;
+    flex-wrap: wrap; /* Permet de gérer les petits écrans */
+    padding: 0;
+}
+
+.footer-col .links li {
+    list-style: none;
+}
+
 .footer-col .links li a {
     text-decoration: none;
-    color: #bfbfbf;
+    color: #fff;
+    font-size: 16px;
 }
+
 .footer-col .links li a:hover {
-    color: #fff;
+    color: black;
 }
-.footer-col p {
-    margin: 20px 0;
-    color: #bfbfbf;
-    max-width: 300px;
-}
-.footer-col form {
-    display: flex;
-    gap: 5px;
-}
-.footer-col input {
-    height: 40px;
-    border-radius: 6px;
-    background: none;
-    width: 100%;
-    outline: none;
-    border: 1px solid #7489C6 ;
-    caret-color: #fff;
-    color: #fff;
-    padding-left: 10px;
-}
-.footer-col input::placeholder {
-    color: #ccc;
-}
-.footer-col form button {
-    background: #fff;
-    outline: none;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: 0.2s ease;
-}
-.footer-col form button:hover {
-    background: #cecccc;
-}
-.footer-col .icons {
-    display: flex;
-    margin-top: 30px;
-    gap: 30px;
-    cursor: pointer;
-}
-.footer-col .icons i {
-    color: #afb6c7;
-}
-.footer-col .icons i:hover  {
-    color: #fff;
-}
-@media (max-width: 768px) {
-    .footer {
-        position: relative;
-        bottom: 0;
-        left: 0;
-        transform: none;
-        width: 100%;
-        border-radius: 0;
-    }
-    .footer .footer-row {
-        padding: 20px;
-        gap: 1rem;
-    }
-    .footer-col form {
-        display: block;
-    }
-    .footer-col form :where(input, button) {
-        width: 100%;
-    }
-    .footer-col form button {
-        margin: 10px 0 0 0;
-    }
+
+.footer .copyright {
+    margin-top: 20px;
+    font-size: 13px;
+    color: black;
+    text-align: center;
 }
