@@ -45,11 +45,17 @@
         <li><a href="#">A propos de nous</a></li>
       </ul>
     </div>
-    <div class="hello">
-      <?php echo "<p>Bonjour ".$_SESSION['prenom']." !</p> "?>
-      </div>
+    <span class="deconnexion">
+      <?php echo "<p>Bonjour ".$_SESSION['prenom']." !</p> <button onclick='deconnexion()'>Déconnexion</button>" ?>
+      </span>
     </div>
   </div>
 </nav>
 </body>
 </html>
+<?php  function deconnexion()
+{
+    session_destroy();
+    header("Location:/");
+}
+?>
