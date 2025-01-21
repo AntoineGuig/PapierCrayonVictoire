@@ -11,15 +11,12 @@ if (!empty($login) && !empty($password)) {
     $stmt->bindParam(':email', $login);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    var_dump($user);
-    var_dump($password);
 
     if ($user && hash('sha256', $password) === $user['password']) {
         session_start();
         $_SESSION['prenom'] = $user['prenom'];
         $_SESSION['nom'] = $user['nom'];
-        echo $_SESSION['prenom'];
-        //header('Location: ../PapierCrayonVictoire/pages/accueil.php');
+        header('Location: ./pages/accueil.php');
         exit();
     } else {
         $error = "Adresse e-mail ou mot de passe incorrect.";
