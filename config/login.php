@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = trim($_POST['password']);
 
     if (!empty($login) && !empty($password)) {
-        $sql = "SELECT * FROM Utilisateur WHERE login = :login AND password = :password;";
+        $sql = "SELECT * FROM Utilisateur WHERE login = :login AND motDePasse = :password;";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':email', $login);
         $stmt->execute();
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             session_start();
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_name'] = $user['name'];
-            header('Location: accueil.php');
+            header('Location: ../PAPIERVICTOIRECRAYON/pages/accueil.php');
             exit();
         } else {
             $error = "Adresse e-mail ou mot de passe incorrect.";
