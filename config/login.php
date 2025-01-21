@@ -1,4 +1,5 @@
 <?php
+global $pdo;
 include('connexion.php');
 
 $login = trim($_POST['login']);
@@ -13,7 +14,7 @@ if (!empty($login) && !empty($password)) {
     var_dump($user);
     var_dump($password);
 
-    if ($user && hash('sha256', $password) === hash('sha256', $user['password'])) {
+    if ($user && hash('sha256', $password) === $user['password']) {
         session_start();
         $_SESSION['prenom'] = $user['prenom'];
         $_SESSION['nom'] = $user['nom'];
@@ -26,3 +27,4 @@ if (!empty($login) && !empty($password)) {
 } else {
     $error = "Veuillez remplir tous les champs.";
 }
+?>

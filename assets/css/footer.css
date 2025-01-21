@@ -7,12 +7,13 @@
 }
 
 .footer {
-    position: relative; /* Ajustement pour garder le footer visible */
-    padding: 20px 0px 20px 0px; /* Ajout de padding global */
+    padding: 10px 0px 10px 0px; /* Ajout de padding global */
     width: 100%;
     background: #EAA129;
     border-radius: 5px;
     text-align: center; /* Centrer tout le contenu horizontalement */
+    position: absolute;
+    bottom: 0;
 }
 
 .footer .footer-row {

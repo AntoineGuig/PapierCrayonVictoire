@@ -279,6 +279,10 @@ nav .navbar .links li:hover .js-sub-menu{
     .links li .sub-menu .more:hover .more-sub-menu{
         display: none;
     }
+
+   .links li a:hover {
+        color: black;
+    }
     nav .navbar .links li:hover .htmlCss-sub-menu,
     nav .navbar .links li:hover .js-sub-menu{
         display: none;
