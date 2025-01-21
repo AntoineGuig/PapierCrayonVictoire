@@ -17,7 +17,6 @@ if (!empty($login) && !empty($password)) {
         $_SESSION['prenom'] = $user['prenom'];
         $_SESSION['nom'] = $user['nom'];
         header('Location: ../pages/accueil.php');
-        exit();
     } else {
         $error = "Adresse e-mail ou mot de passe incorrect.";
     }

@@ -8,6 +8,7 @@
   <script src="../assets/js/header.js" defer></script>
 </head>
 <body>
+<?php session_start(); ?>
 <nav>
   <div class="navbar">
     <i class='bx bx-menu'></i>
@@ -44,10 +45,8 @@
         <li><a href="#">A propos de nous</a></li>
       </ul>
     </div>
-    <div class="search-box">
-      <i class='bx bx-search'></i>
-      <div class="input-box">
-        <input type="text" placeholder="Search...">
+    <div class="hello">
+      <?php echo "<p>Bonjour ".$_SESSION['prenom']." !</p> "?>
       </div>
     </div>
   </div>
