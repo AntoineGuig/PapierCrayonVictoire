@@ -19,6 +19,7 @@ nav{
     background: #EAA129;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     z-index: 99;
+    display: block;
 }
 nav .navbar{
     height: 100%;
