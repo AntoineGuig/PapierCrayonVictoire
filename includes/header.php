@@ -15,6 +15,7 @@ session_start();
         header("Location:/");
         die();
     }
+    include("../config/connexion.php");
  ?>
 
   <nav>
@@ -25,12 +26,12 @@ session_start();
         </a> </div>
       <div class="nav-links">
         <ul class="links">
-          <li><a href="#">Accueil</a></li>
+          <li><a href="accueil.php">Accueil</a></li>
           <li>
             <a href="#">Les concours</a>
             <i class='bx bxs-chevron-down htmlcss-arrow arrow'></i>
             <ul class="htmlCss-sub-menu sub-menu">
-              <li><a href="#">Concours en cours</a></li>
+              <li><a href="concoursEnCours.php">Concours en cours</a></li>
               <li><a href="#">Futur concours</a></li>
               <li><a href="#">Historique des concours</a></li>
             </ul>
@@ -62,21 +63,25 @@ session_start();
     <span class="deconnexion">
       <?php echo "<p>Bonjour ".$_SESSION['prenom']." ! </p>  <form method=\"post\"> <input type=\"submit\" name=\"deconnexion\" value=\"deconnexion\"/> </form> " ?>
     <!-- --------------------------------- -->
-    <?php
 
-    $sql = "SELECT login from utilisateur inner JOIN administrateur on administrateur.numAdmin = utilisateur.numUtilisateur;";
-    
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    $loginAdmin = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if($loginAdmin == $_SESSION['login'] ){
-      echo "<button> admin </button>";
-    }
-    ?>
 
     <!-- --------------------------------- -->
       </span>
+        <div class="admin">
+<!--            --><?php
+//            global$pdo;
+//            $sql = "SELECT login from utilisateur inner JOIN administrateur on administrateur.numAdmin = utilisateur.numUtilisateur;";
+//
+//            $stmt = $pdo->prepare($sql);
+//            $stmt->execute();
+//            $loginAdmin = $stmt->fetch(PDO::FETCH_ASSOC);
+//            var_dump($loginAdmin);
+//            if($loginAdmin == $_SESSION['login'] ){
+//            echo "<input type='button' name='admin' value='admin'> ";
+//            }
+//            ?>
+        </div>
+
     </div>
     </div>
   </nav>
