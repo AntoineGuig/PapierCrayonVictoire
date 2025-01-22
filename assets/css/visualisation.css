@@ -14,3 +14,40 @@
   max-width: 100%; /* Assure que l'image ne dépasse pas la div */
   height: auto;
 }
+
+/* Conteneur principal */
+.listeConcours {
+  flex-wrap: wrap; /* Passe à la ligne si besoin */
+  gap: 15px; /* Espacement entre les boutons */
+  justify-content: center; /* Centre les boutons horizontalement */
+  padding: 20px; /* Ajouter un peu d'espace autour */
+}
+
+/* Style des boutons */
+.btnConcours button {
+  background-color: #007bff; /* Bleu Bootstrap */
+  color: white; /* Texte en blanc */
+  border: none; /* Supprimer la bordure */
+  padding: 15px 30px; /* Ajuster la taille */
+  font-size: 18px; /* Taille de police lisible */
+  border-radius: 8px; /* Coins arrondis */
+  cursor: pointer; /* Curseur au survol */
+  transition: background-color 0.3s ease; /* Effet au survol */
+}
+
+/* Effet au survol */
+.btnConcours button:hover {
+  background-color: #0056b3; /* Bleu plus foncé au survol */
+}
+
+/* Pour les écrans plus petits */
+@media (max-width: 768px) {
+  .listeConcours {
+    justify-content: center; /* Centre les boutons sur mobile */
+  }
+
+  .btnConcours button {
+    width: 100%; /* Boutons pleine largeur sur petits écrans */
+    font-size: 16px; /* Réduction de la taille du texte */
+  }
+}
