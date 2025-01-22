@@ -61,14 +61,11 @@ session_start();
       }
       ?>
     <span class="deconnexion">
-      <?php echo "<p>Bonjour ".$_SESSION['prenom']." ! </p>  <form method=\"post\"> <input type=\"submit\" name=\"deconnexion\" value=\"deconnexion\"/> </form> " ?>
-    <!-- --------------------------------- -->
-
-
-    <!-- --------------------------------- -->
+      <?php echo "<p>Bonjour ".$_SESSION['prenom']." ! </p>  <form method=\"post\"> <input type=\"submit\" name=\"deconnexion\" value=\"deconnexion\"/> </form> "
+      ?>
       </span>
         <div class="admin">
-<!--            --><?php
+<?php
 //            global$pdo;
 //            $sql = "SELECT login from utilisateur inner JOIN administrateur on administrateur.numAdmin = utilisateur.numUtilisateur;";
 //
