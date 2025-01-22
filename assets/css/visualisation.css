@@ -3,13 +3,11 @@
 
   gap: 20px; /* Espacement entre les dessins */
   justify-content: flex-start; /* Aligner les dessins au début de la ligne */
-
 }
 
 .dessin {
-  width: 450px; /* Ajuste la largeur des dessins */
+  width: 300px; /* Ajuste la largeur des dessins */
   text-align: center;
-
 }
 
 .imageDessin {
