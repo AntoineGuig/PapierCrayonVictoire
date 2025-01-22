@@ -11,6 +11,7 @@
 </header>
 <div class="content-body">
     <p>Bienvenue sur notre page d'accueil></p>
+    <?php  ?>
 </div>
 <footer class="footer">
     <?php include '../includes/footer.html'; ?>
