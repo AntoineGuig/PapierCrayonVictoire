@@ -89,6 +89,7 @@
     <footer class="footer">
         <?php include '../includes/footer.html'; ?>
     </footer>
+
     <script>
         function voirMesDessins() {
             document.getElementById("listeMesDessins").style.display = "flex";
@@ -109,7 +110,7 @@
             });
         }
     </script>
-
 </body>
+
 
 </html>
