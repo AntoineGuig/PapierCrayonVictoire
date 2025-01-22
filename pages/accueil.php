@@ -10,7 +10,7 @@
     <?php include '../includes/header.html'; ?>
 </header>
 <div class="content-body">
-    <p>Bienvenue sur notre page d'accueil></p>
+    <p>Bienvenue sur notre page d'accueil</p>
 </div>
 <footer class="footer">
     <?php include '../includes/footer.html'; ?>
