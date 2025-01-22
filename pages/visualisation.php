@@ -84,14 +84,13 @@
 
             </div>
 
-
-
         </div>
     </div>
     <footer class="footer">
         <?php include '../includes/footer.html'; ?>
     </footer>
+    <script src="../assets/js/visualisation.js"></script>
+
 </body>
 
 </html>
-<script src="../assets/js/visualisation.js"></script>
