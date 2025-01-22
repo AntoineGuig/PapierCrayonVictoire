@@ -59,9 +59,23 @@ session_start();
         header("Location:/");
       }
       ?>
-      <span class="deconnexion">
-        <?php echo "<p>Bonjour " . $_SESSION['prenom'] . " ! </p>  <form method=\"post\"> <input type=\"submit\" name=\"deconnexion\" value=\"deconnexion\"/> </form> " ?>
+    <span class="deconnexion">
+      <?php echo "<p>Bonjour ".$_SESSION['prenom']." ! </p>  <form method=\"post\"> <input type=\"submit\" name=\"deconnexion\" value=\"deconnexion\"/> </form> " ?>
+    <!-- --------------------------------- -->
+    <?php
 
+    $sql = "SELECT login from utilisateur inner JOIN administrateur on administrateur.numAdmin = utilisateur.numUtilisateur;";
+    
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $loginAdmin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if($loginAdmin == $_SESSION['login'] ){
+      echo "<button> admin </button>";
+    }
+    ?>
+
+    <!-- --------------------------------- -->
       </span>
     </div>
     </div>

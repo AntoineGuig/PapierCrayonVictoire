@@ -35,18 +35,21 @@
                 $stmt->bindParam(':idUser', $_SESSION['numUtilisateur']);
                 $stmt->execute();
                 $dessins = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                foreach ($dessins as $dessin) {
-                    echo "<div class='dessin'>";
-                    echo "<img src='" . $dessin['leDessin'] . "' alt='dessin' class='imageDessin'>";
-                    echo "<p>" . $dessin['dateRemise'] . "</p>";
-                    echo "</div>";
-                }
+                foreach ($dessins as $dessin) { ?>
+                    <div class="dessin">
+                        <img src="<?= $dessin['leDessin'] ?>" alt="dessin" class="imageDessin">
+                        <p><?= $dessin['dateRemise'] ?></p>
+                        <p><?= $dessin['commentaire'] ?></p>
+                    </div>
+            <?php }
             } else {
                 $error = "Utilisateur introuvable";
             }
 
             ?>
         </div>
+
+
         <div class="listeDessinsClub" id="listeDessinsClub">
 
 
