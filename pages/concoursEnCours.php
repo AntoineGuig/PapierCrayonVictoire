@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Acceuil</title>
+    <title>Concours en cours</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 </head>
 <body>
@@ -10,7 +10,8 @@
     <?php include '../includes/header.php'; ?>
 </header>
 <div class="content-body">
-    <p>Bienvenue sur notre page d'accueil</p>
+    <p>Bienvenue sur notre page d'accueil></p>
+    <?php  ?>
 </div>
 <footer class="footer">
     <?php include '../includes/footer.html'; ?>

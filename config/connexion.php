@@ -1,8 +1,10 @@
 <?php
 try {
     $dsn = 'mysql:host=localhost;dbname=PapierCrayonVictoire;charset=utf8';
-    $username = 'root';
-    $password = '';
+    $username = 'db_etu';
+    $password = 'N3twork!';
+
+    //$port = '5619';
     $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,

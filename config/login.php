@@ -11,11 +11,16 @@ if (!empty($login) && !empty($password)) {
     $stmt->bindParam(':email', $login);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
     if ($user && hash('sha256', $password) === $user['motDePasse']) {
         session_start();
         $_SESSION['prenom'] = $user['prenom'];
         $_SESSION['nom'] = $user['nom'];
+        $_SESSION['numUtilisateur'] = $user['numUtilisateur'];
+        $_SESSION['login'] = $user['login'];
+        $_SESSION['numClub'] = $user['numClub'];
+        $_SESSION['dateDeNaissance'] = $user['dateDeNaissance'];
+        $_SESSION['sexe'] = $user['sexe'];
+        var_dump($_SESSION);
         header('Location: ../pages/accueil.php');
         exit();
     } else {
