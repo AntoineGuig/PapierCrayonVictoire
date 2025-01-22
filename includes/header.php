@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodingLab Navbar</title>
   <link rel="stylesheet" href="../assets/css/header.css">
-  <script src="../assets/js/header.js" defer></script>
+  <script src="../assets/js/header.js" ></script>
 </head>
 <body>
 <?php
