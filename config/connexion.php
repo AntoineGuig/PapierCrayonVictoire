@@ -2,7 +2,8 @@
 try {
     $dsn = 'mysql:host=localhost;dbname=PapierCrayonVictoire;charset=utf8';
     $username = 'db_etu';
-    $password = 'N3twork!';
+    $password = 'N3twork! azertyuio';
+
     //$port = '5619';
     $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
