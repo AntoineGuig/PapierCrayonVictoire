@@ -8,7 +8,12 @@
   <script src="../assets/js/header.js" defer></script>
 </head>
 <body>
-<?php session_start(); ?>
+<?php
+session_start(); ?>
+
+
+
+
 <nav>
   <div class="navbar">
     <i class='bx bx-menu'></i>
@@ -45,17 +50,18 @@
         <li><a href="#">A propos de nous</a></li>
       </ul>
     </div>
+      <?php
+      if(isset($_POST['deconnexion'])){
+          session_destroy();
+          header("Location:/");
+      }
+      ?>
     <span class="deconnexion">
-      <?php echo "<p>Bonjour ".$_SESSION['prenom']." !</p> <button onclick='deconnexion()'>Déconnexion</button>" ?>
+      <?php echo "<p>Bonjour ".$_SESSION['prenom']." ! </p>  <form method=\"post\"> <input type=\"submit\" name=\"deconnexion\" value=\"deconnexion\"/> </form> " ?>
+
       </span>
     </div>
   </div>
 </nav>
 </body>
 </html>
-<?php  function deconnexion()
-{
-    session_destroy();
-    header("Location:/");
-}
-?>
