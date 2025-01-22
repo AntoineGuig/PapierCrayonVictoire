@@ -1,36 +1,35 @@
-<?php include('../config/connexion.php');
-
+<?php
+include('../config/connexion.php');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <title>Visualisation des dessins</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="stylesheet" href="../assets/css/visualisation.css" />
+    <script src="../assets/js/visualisation.js"></script>
 
 </head>
 
 <body>
     <header class="header">
-        <?php include '../includes/header.php';
-        ?>
+        <?php include '../includes/header.php'; ?>
     </header>
     <div class="content-body">
-        <p>Bienvenue sur la page de visualisation des dessins></p>
+        <p>Bienvenue sur la page de visualisation des dessins</p>
 
         <div class="boutons">
             <span>
-                <button id="btn1" class="btn" onclick="voirMesDessins()">Mes dessins</button>
+                <button id="btn1" class="btn active" onclick="voirMesDessins()">Mes dessins</button>
                 <button id="btn2" class="btn" onclick="voirLesDessinsConcours()">Tous les dessins</button>
             </span>
         </div>
-        <div class="listeMesDessins" id="listeMesDessins" style="display:none;">
+
+        <div class="listeMesDessins" id="listeMesDessins">
             <?php
             if (!empty($_SESSION['numUtilisateur'])) {
-
-                $sql = "SELECT * FROM dessin WHERE numCompetiteur = :idUser ORDER BY dateRemise desc;";
+                $sql = "SELECT dessin.*, concours.theme FROM dessin inner join concours on concours.numConcours = dessin.numConcours WHERE numCompetiteur = :idUser ORDER BY dateRemise DESC";
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindParam(':idUser', $_SESSION['numUtilisateur']);
                 $stmt->execute();
@@ -38,79 +37,54 @@
 
                 foreach ($dessins as $dessin) { ?>
                     <div class="dessin">
-                        <img src="<?= $dessin['leDessin'] ?>" alt="dessin" class="imageDessin">
-                        <p><?= $dessin['dateRemise'] ?></p>
-                        <p><?= $dessin['commentaire'] ?></p>
+                        <img src="<?= htmlspecialchars($dessin['leDessin']) ?>" alt="dessin" class="imageDessin">
+                        <p><?= htmlspecialchars($dessin['theme']) ?> <?= htmlspecialchars($dessin['dateRemise']) ?></p>
+                        <p><?= htmlspecialchars($dessin['commentaire']) ?></p>
                     </div>
             <?php }
-            } else {
-                $error = "Utilisateur introuvable";
-            }
-
-            ?>
+            } ?>
         </div>
-
 
         <div class="listeConcours" id="listeConcours" style="display:none;">
             <?php
-            $sql = "SELECT * FROM Concours WHERE statut = 'terminé';";
+            $sql = "SELECT * FROM Concours WHERE statut = 'terminé' ORDER BY numConcours DESC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             $concours = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            foreach ($concours as $concour) { ?>
+
+            foreach ($concours as $leConcours) { ?>
                 <div class="btnConcours">
-                    <button id="<?php echo $concour['numConcours'] ?>" onclick="afficherDessinsConcours(<?php echo $concour['numConcours'] ?>)">
-                        <?php echo htmlspecialchars($concour['theme']); ?>
+                    <button class="concours-btn" data-concours="<?= htmlspecialchars($leConcours['numConcours']) ?>">
+                        <?= htmlspecialchars($leConcours['theme']) ?>
                     </button>
-                </div>
-            <?php } ?>
+                    <div class="dessins-container" id="dessins-<?= htmlspecialchars($leConcours['numConcours']) ?>" style="display:none;">
+                        <?php
+                        $sql = "SELECT Dessin.*, Utilisateur.nom, Utilisateur.prenom FROM Dessin JOIN Utilisateur ON Dessin.numCompetiteur = Utilisateur.numUtilisateur WHERE Dessin.numConcours = :numConcours ORDER BY Dessin.dateRemise DESC";
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->bindParam(':numConcours', $leConcours['numConcours']);
+                        $stmt->execute();
+                        $dessinsConcours = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            <div class="listeDessinsConcours" id="listeDessinsConcours" style="display:flex;">
-                <?php
-                $sql = "SELECT * FROM dessin WHERE numConcours = :numConcours ORDER BY dateRemise desc;";
-                $stmt = $pdo->prepare($sql);
-                $stmt->bindParam(':numConcours', $concour['numConcours']);
-                $stmt->execute();
-                $dessinsConcours = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                foreach ($dessinsConcours as $dessinConcours) { ?>
-                    <div class="dessinConcours" style="display:none;" name="<?php echo $numConcours ?>">
-                        <img src="<?= $dessinConcours['leDessin'] ?>" alt="dessin" class="imageDessin">
-                        <p><?= $dessinConcours['dateRemise'] ?></p>
-                        <p><?= $dessinConcours['commentaire'] ?></p>
+                        foreach ($dessinsConcours as $dessin) { ?>
+                            <div class="dessinConcours">
+                                <img src="<?= htmlspecialchars($dessin['leDessin']) ?>" alt="dessin" class="imageDessin">
+                                <p>Par: <?= htmlspecialchars($dessin['prenom']) ?> <?= htmlspecialchars($dessin['nom']) ?></p>
+                                <p>Date: <?= htmlspecialchars($dessin['dateRemise']) ?></p>
+                                <p><?= htmlspecialchars($dessin['commentaire']) ?></p>
+                            </div>
+                        <?php } ?>
                     </div>
-                <?php } ?>
-
-            </div>
-
+                </div>
+            <?php }
+            ?>
         </div>
     </div>
+
     <footer class="footer">
         <?php include '../includes/footer.html'; ?>
     </footer>
 
-    <script>
-        function voirMesDessins() {
-            document.getElementById("listeMesDessins").style.display = "flex";
-            document.getElementById("listeConcours").style.display = "none";
-        }
-
-        function voirLesDessinsConcours() {
-            document.getElementById("listeConcours").style.display = "flex";
-            document.getElementById("listeMesDessins").style.display = "none";
-        }
-
-        function afficherDessinsConcours(numConcours) {
-            document.getElementsByName("dessinConcours").forEach(function(dessin) {
-                dessin.style.display = "none";
-            });
-            document.getElementsByName(numConcours).forEach(function(dessin) {
-                dessin.style.display = "flex";
-            });
-        }
-    </script>
 </body>
-
 
 </html>
