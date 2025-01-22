@@ -15,7 +15,6 @@
 <body>
     <header class="header">
         <?php include '../includes/header.php';
-        var_dump($_SESSION);
         ?>
     </header>
     <div class="content-body">
@@ -65,3 +64,14 @@
 
 </html>
 <script src="../assets/js/visualisation.js"></script>
+<script>
+    function voirMesDessins() {
+        document.getElementById("listeMesDessins").style.display = "flex";
+        document.getElementById("listeDessinsClub").style.display = "none";
+    }
+
+    function voirLesDessinsConcours() {
+        document.getElementById("listeDessinsClub").style.display = "flex";
+        document.getElementById("listeMesDessins").style.display = "none";
+    }
+</script>
