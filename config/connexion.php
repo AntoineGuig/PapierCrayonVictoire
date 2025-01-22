@@ -2,7 +2,7 @@
 try {
     $dsn = 'mysql:host=localhost;dbname=PapierCrayonVictoire;charset=utf8';
     $username = 'db_etu';
-    $password = 'N3tworeeek!';
+    $password = 'N3twork!';
 
     //$port = '5619';
     $options = [
