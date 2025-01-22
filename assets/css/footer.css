@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Import uniquement les poids de police nécessaires */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+/* Reset de base */
 * {
     margin: 0;
     padding: 0;
@@ -6,66 +9,70 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Structure de base */
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 150px;
+}
+
+/* Footer */
 .footer {
-    padding: 10px 0px 10px 0px; /* Ajout de padding global */
-    width: 100%;
-    background: #EAA129;
-    border-radius: 5px;
-    text-align: center; /* Centrer tout le contenu horizontalement */
     position: absolute;
     bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    background: #EAA129;
+    border-radius: 5px;
+    text-align: center;
 }
 
-.footer .footer-row {
+.footer-row {
     display: flex;
-    flex-direction: row; /* Organiser les éléments verticalement */
     justify-content: center;
-    align-items: center; /* Centrer les éléments horizontalement */
+    align-items: center;
 }
 
-.footer .footer-row > img {
+.footer-row img {
     width: 100px;
     height: auto;
-    margin-bottom: 0;
 }
 
-.footer-row .footer-col {
-    align-content: center;
-}
-
-.footer-row .footer-col h4 {
+.footer-col h4 {
     color: #fff;
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 10px;
 }
 
-.footer-col .links {
-    display: flex; /* Permet de mettre les liens sur une seule ligne */
-    justify-content: center; /* Centrer les liens */
-    gap: 25px; /* Espace entre les liens */
+.links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
     margin-top: 10px;
-    flex-wrap: wrap; /* Permet de gérer les petits écrans */
-    padding: 0;
 }
 
-.footer-col .links li {
+.links li {
     list-style: none;
 }
 
-.footer-col .links li a {
-    text-decoration: none;
+.links a {
     color: #fff;
     font-size: 16px;
+    text-decoration: none;
 }
 
-.footer-col .links li a:hover {
+.links a:hover {
     color: black;
 }
 
-.footer .copyright {
+.copyright {
     margin-top: 20px;
     font-size: 13px;
     color: black;
-    text-align: center;
 }
