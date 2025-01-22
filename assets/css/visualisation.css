@@ -1,4 +1,18 @@
+.listeMesDessins {
+  flex-wrap: wrap; /* Permet le retour à la ligne quand la largeur max est atteinte */
+
+  gap: 20px; /* Espacement entre les dessins */
+  justify-content: flex-start; /* Aligner les dessins au début de la ligne */
+
+}
+
 .dessin {
-  width: auto;
+  width: 450px; /* Ajuste la largeur des dessins */
+  text-align: center;
+
+}
+
+.imageDessin {
+  max-width: 100%; /* Assure que l'image ne dépasse pas la div */
   height: auto;
 }
