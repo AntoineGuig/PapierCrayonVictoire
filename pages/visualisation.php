@@ -38,7 +38,6 @@
                 foreach ($dessins as $dessin) {
                     echo "<div class='dessin'>";
                     echo "<img src='" . $dessin['leDessin'] . "' alt='dessin' class='imageDessin'>";
-                    echo "<p>" . $dessin['nom'] . "</p>";
                     echo "<p>" . $dessin['dateRemise'] . "</p>";
                     echo "</div>";
                 }
