@@ -18,14 +18,19 @@
 
 .footer .footer-row {
     display: flex;
-    flex-direction: column; /* Organiser les éléments verticalement */
+    flex-direction: row; /* Organiser les éléments verticalement */
+    justify-content: center;
     align-items: center; /* Centrer les éléments horizontalement */
 }
 
 .footer .footer-row > img {
-    width: 150px;
+    width: 100px;
     height: auto;
-    margin-bottom: 20px; /* Espace entre l'image et le contenu suivant */
+    margin-bottom: 0;
+}
+
+.footer-row .footer-col {
+    align-content: center;
 }
 
 .footer-row .footer-col h4 {

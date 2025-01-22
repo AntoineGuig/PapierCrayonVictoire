@@ -2,8 +2,8 @@
 global $pdo;
 include('connexion.php');
 
-$login = trim($_POST['login']);
-$password = trim($_POST['password']);
+$login = htmlspecialchars(trim($_POST['login']));
+$password = htmlspecialchars(trim($_POST['password']));
 
 if (!empty($login) && !empty($password)) {
     $sql = "SELECT * FROM Utilisateur WHERE login = :email;";

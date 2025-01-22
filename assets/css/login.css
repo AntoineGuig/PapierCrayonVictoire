@@ -32,7 +32,7 @@ body {
 .container {
     position: relative;
     width: 850px;
-    height: 550px;
+    height: 600px;
     background: #fff;
     border-radius: 30px;
     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
