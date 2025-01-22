@@ -8,4 +8,4 @@
 /dataSources.local.xml
 
 #fichier config connexion bdd
-connexion.php
+/config/connexion.php
