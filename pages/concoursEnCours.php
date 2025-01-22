@@ -11,7 +11,7 @@
 </header>
 <div class="content-body">
     <p>Bienvenue sur notre page d'accueil></p>
-    <?php  ?>
+    <?php include '../config/concoursEnCours.php'?>
 </div>
 <footer class="footer">
     <?php include '../includes/footer.html'; ?>
