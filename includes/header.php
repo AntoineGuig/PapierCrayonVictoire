@@ -11,8 +11,6 @@
 <body>
 <?php
 session_start();
-var_dump($_SESSION);
-
     if (empty($_SESSION['login'])) {
         header("Location:/");
         die();
