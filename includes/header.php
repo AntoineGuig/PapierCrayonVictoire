@@ -8,13 +8,16 @@
   <link rel="stylesheet" href="../assets/css/header.css">
   <script src="../assets/js/header.js" defer></script>
 </head>
-
 <body>
 <?php
-session_start(); ?>
+session_start();
+var_dump($_SESSION);
 
-
-
+    if (empty($_SESSION['login'])) {
+        header("Location:/");
+        die();
+    }
+ ?>
 
   <nav>
     <div class="navbar">
@@ -66,5 +69,4 @@ session_start(); ?>
     </div>
   </nav>
 </body>
-
 </html>

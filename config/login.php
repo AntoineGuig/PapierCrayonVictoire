@@ -11,7 +11,6 @@ if (!empty($login) && !empty($password)) {
     $stmt->bindParam(':email', $login);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    var_dump($user);
     if ($user && hash('sha256', $password) === $user['motDePasse']) {
         session_start();
         $_SESSION['prenom'] = $user['prenom'];
@@ -30,3 +29,4 @@ if (!empty($login) && !empty($password)) {
 } else {
     $error = "Veuillez remplir tous les champs.";
 }
+?>
