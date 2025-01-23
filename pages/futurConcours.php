@@ -10,7 +10,7 @@
     <?php include '../includes/header.php'; ?>
 </header>
 <div class="content-body">
-    <?php include '../includes/concoursEnCours.php' ?>
+    <?php include '../includes/futurConcours.php' ?>
 </div>
 <footer class="footer">
     <?php include '../includes/footer.html'; ?>

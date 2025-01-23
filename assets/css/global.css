@@ -1,0 +1,16 @@
+.bold{
+    font-weight: bold;
+}
+
+.align_center{
+    text-align: center;
+}
+
+.inline{
+    display: inline-block;
+}
+
+.mrg-top-bottom{
+    margin-top:40vh;
+    margin-bottom:40vh;
+}

@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodingLab Navbar</title>
   <link rel="stylesheet" href="../assets/css/header.css">
-  <script src="../assets/js/header.js" ></script>
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <script src="../assets/js/header.js"></script>
 </head>
 <body>
 <?php
@@ -32,8 +33,8 @@ session_start();
             <i class='bx bxs-chevron-down htmlcss-arrow arrow'></i>
             <ul class="htmlCss-sub-menu sub-menu">
               <li><a href="concoursEnCours.php">Concours en cours</a></li>
-              <li><a href="#">Futur concours</a></li>
-              <li><a href="#">Historique des concours</a></li>
+              <li><a href="futurConcours.php">Futur concours</a></li>
+              <li><a href="historiqueConcours.php">Historique des concours</a></li>
             </ul>
           </li>
           <li>
