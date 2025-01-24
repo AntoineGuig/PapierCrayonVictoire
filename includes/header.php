@@ -66,18 +66,21 @@ session_start();
       ?>
       </span>
         <div class="admin">
+
+<div class="admin">
 <?php
-//            global$pdo;
-//            $sql = "SELECT login from utilisateur inner JOIN administrateur on administrateur.numAdmin = utilisateur.numUtilisateur;";
-//
-//            $stmt = $pdo->prepare($sql);
-//            $stmt->execute();
-//            $loginAdmin = $stmt->fetch(PDO::FETCH_ASSOC);
-//            var_dump($loginAdmin);
-//            if($loginAdmin == $_SESSION['login'] ){
-//            echo "<input type='button' name='admin' value='admin'> ";
-//            }
-//            ?>
+  global$pdo;
+  $sql = "SELECT login from utilisateur inner JOIN administrateur on administrateur.numAdmin = utilisateur.numUtilisateur;";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute();
+  $loginAdmin = $stmt->fetch(PDO::FETCH_ASSOC);
+  var_dump($loginAdmin);
+  if($loginAdmin == $_SESSION['login'] ){
+  echo "<input type='button' name='admin' value='admin'> ";
+  }
+?>
+</div>
+
         </div>
 
     </div>
