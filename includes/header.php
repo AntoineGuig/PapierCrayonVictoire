@@ -73,9 +73,7 @@ session_start();
             global $pdo;
 
             try {
-                $sql = "SELECT login FROM utilisateur 
-                        INNER JOIN administrateur 
-                        ON administrateur.numAdmin = utilisateur.numUtilisateur;";
+                $sql = "SELECT login from Utilisateur inner JOIN Administrateur on Administrateur.numAdmin = Utilisateur.numUtilisateur;";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute();
             
