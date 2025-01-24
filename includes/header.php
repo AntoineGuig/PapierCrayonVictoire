@@ -66,20 +66,32 @@ session_start();
       ?>
       </span>
         <div class="admin">
+          <?php
+            session_start();
 
-<div class="admin">
-<?php
-  global$pdo;
-  $sql = "SELECT login from utilisateur inner JOIN administrateur on administrateur.numAdmin = utilisateur.numUtilisateur;";
-  $stmt = $pdo->prepare($sql);
-  $stmt->execute();
-  $loginAdmin = $stmt->fetch(PDO::FETCH_ASSOC);
-  var_dump($loginAdmin);
-  if($loginAdmin == $_SESSION['login'] ){
-  echo "<input type='button' name='admin' value='admin'> ";
-  }
-?>
-</div>
+            // Vérifiez que la connexion PDO existe
+            global $pdo;
+
+            try {
+                $sql = "SELECT login FROM utilisateur 
+                        INNER JOIN administrateur 
+                        ON administrateur.numAdmin = utilisateur.numUtilisateur;";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute();
+            
+                // Récupérez toutes les données si nécessaire
+                $loginAdmin = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+                // Vérifiez si l'utilisateur connecté est un administrateur
+                if (isset($_SESSION['login']) && $loginAdmin && $loginAdmin['login'] == $_SESSION['login']) {
+                    echo "<input type='button' name='admin' value='admin'> ";
+                }
+            } catch (PDOException $e) {
+                echo "Erreur : " . $e->getMessage();
+            }
+          ?>
+        </div>
+
 
         </div>
 
