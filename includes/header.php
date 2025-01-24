@@ -67,8 +67,6 @@ session_start();
       </span>
         <div class="admin">
           <?php
-            session_start();
-
             // Vérifiez que la connexion PDO existe
             global $pdo;
 
