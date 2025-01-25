@@ -1,6 +1,4 @@
-<?php
-include('../config/connexion.php');
-?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -28,8 +26,11 @@ include('../config/connexion.php');
 
         <div class="listeMesDessins" id="listeMesDessins">
             <?php
+
+            include('../config/connexion.php');
+
             if (!empty($_SESSION['numUtilisateur'])) {
-                $sql = "SELECT dessin.*, concours.theme FROM dessin inner join concours on concours.numConcours = dessin.numConcours WHERE numCompetiteur = :idUser ORDER BY dateRemise DESC";
+                $sql = "SELECT Dessin.*, Concours.theme FROM Dessin inner join Concours on Concours.numConcours = Dessin.numConcours WHERE numCompetiteur = :idUser ORDER BY dateRemise DESC;";
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindParam(':idUser', $_SESSION['numUtilisateur']);
                 $stmt->execute();

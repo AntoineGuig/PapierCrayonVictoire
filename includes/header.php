@@ -7,7 +7,6 @@
   <title>CodingLab Navbar</title>
   <link rel="stylesheet" href="../assets/css/header.css">
   <link rel="stylesheet" href="../assets/css/global.css">
-  <script src="../assets/js/header.js"></script>
 </head>
 <body>
 <?php
