@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -48,7 +47,7 @@
 
         <div class="listeConcours" id="listeConcours" style="display:none;">
             <?php
-            $sql = "SELECT * FROM Concours WHERE statut = 'terminé' ORDER BY numConcours DESC";
+            $sql = "SELECT numConcours, DATE_FORMAT(dateDebut, '%d/%m/%Y') as dateDebut, DATE_FORMAT(dateFin, '%d/%m/%Y') as dateFin, theme FROM Concours WHERE statut = 'terminé' ORDER BY numConcours DESC";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             $concours = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -56,12 +55,14 @@
 
             foreach ($concours as $leConcours) { ?>
                 <div class="btnConcours">
+
                     <button class="concours-btn" data-concours="<?= htmlspecialchars($leConcours['numConcours']) ?>">
-                        <?= htmlspecialchars($leConcours['theme']) ?>
+                        <?= htmlspecialchars($leConcours['theme']) . "</br>" . htmlspecialchars($leConcours['dateDebut']) . "-" . htmlspecialchars($leConcours['dateFin']) ?>
                     </button>
+
                     <div class="dessins-container" id="dessins-<?= htmlspecialchars($leConcours['numConcours']) ?>" style="display:none;">
                         <?php
-                        $sql = "SELECT Dessin.*, Utilisateur.nom, Utilisateur.prenom FROM Dessin JOIN Utilisateur ON Dessin.numCompetiteur = Utilisateur.numUtilisateur WHERE Dessin.numConcours = :numConcours ORDER BY Dessin.dateRemise DESC";
+                        $sql = "SELECT Dessin.leDessin, Dessin.commentaire, DATE_FORMAT(Dessin.dateRemise, '%d/%m/%Y') as dateRemise , Utilisateur.nom, Utilisateur.prenom FROM Dessin JOIN Utilisateur ON Dessin.numCompetiteur = Utilisateur.numUtilisateur WHERE Dessin.numConcours = :numConcours ORDER BY Dessin.dateRemise DESC";
                         $stmt = $pdo->prepare($sql);
                         $stmt->bindParam(':numConcours', $leConcours['numConcours']);
                         $stmt->execute();
