@@ -60,6 +60,10 @@ session_start();
         session_destroy();
         header("Location:/");
       }
+
+      if (isset($_POST['admin'])) {
+          header("Location:/pages/admin.php");
+      }
       ?>
     <span class="deconnexion">
       <?php echo "<p>Bonjour ".$_SESSION['prenom']." ! </p>  <form method=\"post\"> <input type=\"submit\" name=\"deconnexion\" value=\"deconnexion\"/> </form> "
@@ -80,7 +84,7 @@ session_start();
             
                 // Vérifiez si l'utilisateur connecté est un administrateur
                 if (isset($_SESSION['login']) && $loginAdmin && $loginAdmin['login'] == $_SESSION['login']) {
-                    echo "<input type='button' name='admin' value='admin'> ";
+                    echo "<form method=\"post\"> <input type=\"submit\" name=\"admin\" value=\"admin\"/> </form>";
                 }
             } catch (PDOException $e) {
                 echo "Erreur : " . $e->getMessage();
