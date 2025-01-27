@@ -203,7 +203,7 @@ nav .navbar .links li:hover .js-sub-menu {
   font-weight: 500;
 }
 
-.deconnexion input {
+.deconnexion input[type="submit"] {
   background-color: #ff3b3b;
   color: white;
   border: none;
@@ -214,12 +214,17 @@ nav .navbar .links li:hover .js-sub-menu {
   transition: background-color 0.2s ease;
 }
 
-.deconnexion input:hover {
+.deconnexion input[type="submit"]:hover {
   background-color: #e62e2e;
 }
 
+.deconnexion input[type="submit"]:active {
+  background-color: #d42828;
+  transform: scale(0.98);
+}
+
 input[name="admin"] {
-  background-color: #007bff;
+  background-color: #2196f3;
   color: white;
   border: none;
   padding: 4px 8px;
@@ -227,9 +232,14 @@ input[name="admin"] {
   cursor: pointer;
   font-weight: 500;
   transition: background-color 0.2s ease;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 input[name="admin"]:hover {
   background-color: #1976d2;
+}
+
+input[name="admin"]:active {
+  background-color: #1565c0;
+  transform: scale(0.98);
 }

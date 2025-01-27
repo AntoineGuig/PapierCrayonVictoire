@@ -15,25 +15,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $numConcours = $numConcours->fetch(PDO::FETCH_ASSOC);
         $numConcours = $numConcours['numConcours'];
 
+        $clubUtilisateur = $pdo->query("SELECT count(numCompetiteur) as nbUtilisateur FROM competiteurparticipeconcours WHERE numCompetiteur = " . $_SESSION['numUtilisateur'] . " AND numConcours = " . $numConcours);
+        $clubUtilisateur = $clubUtilisateur->fetch(PDO::FETCH_ASSOC);
+
+
         $qteDessins = $pdo->query("SELECT COUNT(*) FROM Dessin WHERE numCompetiteur = " . $_SESSION['numUtilisateur'] . " AND numConcours = " . $numConcours);
         $qteDessins = $qteDessins->fetch(PDO::FETCH_ASSOC);
         $qteDessins = $qteDessins['COUNT(*)'];
 
+        if ($clubUtilisateur['nbUtilisateur'] != 0) {
+            if ($qteDessins < 3) {
+                $stmt = $pdo->prepare("INSERT INTO Dessin (numCompetiteur, numConcours, commentaire, dateRemise, leDessin) VALUES (?, ?, ?, DATE(NOW()), ?)");
+                if ($stmt->execute([$_SESSION['numUtilisateur'], $numConcours, $commentaire, $chemin])) {
 
-        if ($qteDessins < 3) {
-            $stmt = $pdo->prepare("INSERT INTO Dessin (numCompetiteur, numConcours, commentaire, dateRemise, leDessin) VALUES (?, ?, ?, DATE(NOW()), ?)");
-            if ($stmt->execute([$_SESSION['numUtilisateur'], $numConcours, $commentaire, $chemin])) {
-
-                if (move_uploaded_file($_FILES['dessin']['tmp_name'], '../assets/img/Dessins/' . $dessin)) {
-                    $message = "Dessin envoyé !";
+                    if (move_uploaded_file($_FILES['dessin']['tmp_name'], '../assets/img/Dessins/' . $dessin)) {
+                        $message = "Dessin envoyé !";
+                    } else {
+                        $message = "Erreur lors du téléchargement du fichier.";
+                    }
                 } else {
-                    $message = "Erreur lors du téléchargement du fichier.";
+                    $message = "Une erreur est survenue lors de l'envoi du dessin.";
                 }
             } else {
-                $message = "Une erreur est survenue lors de l'envoi du dessin.";
+                $message = "Vous avez déjà envoyé 3 dessins pour ce concours.";
             }
         } else {
-            $message = "Vous avez déjà envoyé 3 dessins pour ce concours.";
+            $message = "Vous n'êtes pas inscrit à ce concours.";
         }
     }
 }
