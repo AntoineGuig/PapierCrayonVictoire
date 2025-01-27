@@ -10,7 +10,7 @@
     <?php include '../includes/header.php'; ?>
 </header>
 <div class="content-body margin-auto">
-    <p class="align_center bold">Site créé par les développeurs :</p>
+    <p class="margin-auto align_center bold">Site créé par les développeurs :</p>
     <p class="align_center">Sam SEBILLE</p>
     <p class="align_center">Maxime HUDON</p>
     <p class="align_center">Antoine GUILLON</p>
