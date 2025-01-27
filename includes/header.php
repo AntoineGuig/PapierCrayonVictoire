@@ -22,9 +22,10 @@
   <nav>
     <div class="navbar">
       <i class='bx bx-menu'></i>
-      <div class="logo"><a href="#">
+      <div class="logo"><a href="accueil.php">
           <img src="../assets/img/Logo_sans_fond.png" alt="logo">
-        </a> </div>
+        </a>
+      </div>
       <div class="nav-links">
         <ul class="links">
           <li><a href="accueil.php">Accueil</a></li>

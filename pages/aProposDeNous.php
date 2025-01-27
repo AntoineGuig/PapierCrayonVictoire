@@ -9,8 +9,8 @@
 <header class="header">
     <?php include '../includes/header.php'; ?>
 </header>
-<div class="content-body margin-auto">
-    <p class="align_center bold">Site créé par les développeurs :</p>
+<div class="content-body">
+    <p class="pad-top10-bottom10 align_center bold">Site créé par les développeurs :</p>
     <p class="align_center">Sam SEBILLE</p>
     <p class="align_center">Maxime HUDON</p>
     <p class="align_center">Antoine GUILLON</p>
