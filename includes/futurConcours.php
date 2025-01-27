@@ -1,8 +1,9 @@
 <?php
-$sql = "SELECT * FROM Concours WHERE statut = 'pas commencé';";
+$sql = "SELECT *,DATE_FORMAT(Concours.dateDebut, '%d/%m/%Y') as debut,DATE_FORMAT(Concours.dateFin, '%d/%m/%Y') as fin FROM Concours WHERE statut = 'pas commencé';";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $concours = $stmt->fetchall(PDO::FETCH_ASSOC);
+
 echo '<h1 class="align_center mrg-top15-bottom10">Vous trouverez les différents futur concours </h1>';
 
 echo '<div class="align_center ">';
@@ -23,8 +24,8 @@ if ($concours) {
         echo '<tr>';
         echo '<td>' . htmlspecialchars($concour['numConcours']) . '</td>';
         echo '<td>' . htmlspecialchars($concour['theme']) . '</td>';
-        echo '<td>' . htmlspecialchars($concour['dateDebut']) . '</td>';
-        echo '<td>' . htmlspecialchars($concour['dateFin']) . '</td>';
+        echo '<td>' . htmlspecialchars($concour['debut']) . '</td>';
+        echo '<td>' . htmlspecialchars($concour['fin']) . '</td>';
         echo '<td>' . htmlspecialchars($concour['statut']) . '</td>';
         echo '</tr>';
     }
