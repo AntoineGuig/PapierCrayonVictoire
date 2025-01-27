@@ -9,12 +9,15 @@
   margin: 20px 0;
 }
 
+.boutons:hover {
+  cursor: pointer;
+}
+
 .btn {
   padding: 10px 20px;
   margin: 0 10px;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
 }
 
 .btn.active {
