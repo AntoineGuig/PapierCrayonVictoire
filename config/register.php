@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php if (isset($message)): ?>
         <p><?php echo $message; ?></p>
     <?php endif; ?>
-    <a href="../index.html">Retour à la page de connexion</a>
+    <a href="../index.html">Retour à la page de connexion.</a>
 </body>
 
 </html>
