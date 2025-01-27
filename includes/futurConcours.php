@@ -3,7 +3,7 @@ $sql = "SELECT * FROM Concours WHERE statut = 'pas commencé';";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $concours = $stmt->fetchall(PDO::FETCH_ASSOC);
-echo '<h1 class="align_center pad-top10-bottom10">Vous trouverez les différents futur concours </h1>';
+echo '<h1 class="align_center mrg-top15-bottom10">Vous trouverez les différents futur concours </h1>';
 
 echo '<div class="align_center ">';
 if ($concours) {
