@@ -37,3 +37,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = "Tous les champs sont obligatoires.";
     }
 }
+echo $message;
+?>
