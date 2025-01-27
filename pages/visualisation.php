@@ -11,7 +11,7 @@
         <?php include '../includes/header.php'; ?>
     </header>
     <div class="content-body">
-        <p>Bienvenue sur la page de visualisation des dessins</p>
+        <h1 class="mrg-top15-bottom10 align_center">Bienvenue sur la page de visualisation des dessins</h1>
 
         <div class="boutons">
             <span>
@@ -26,7 +26,7 @@
             include('../config/connexion.php');
 
             if (!empty($_SESSION['numUtilisateur'])) {
-                $sql = "SELECT Dessin.*, Concours.theme FROM Dessin inner join Concours on Concours.numConcours = Dessin.numConcours WHERE numCompetiteur = :idUser ORDER BY dateRemise DESC;";
+                $sql = "SELECT Dessin.leDessin, Dessin.commentaire, DATE_FORMAT(Dessin.dateRemise, '%d/%m/%Y') as dateRemise, Concours.theme FROM Dessin inner join Concours on Concours.numConcours = Dessin.numConcours WHERE numCompetiteur = :idUser ORDER BY dateRemise DESC;";
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindParam(':idUser', $_SESSION['numUtilisateur']);
                 $stmt->execute();
