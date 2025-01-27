@@ -1,0 +1,33 @@
+table {
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 800px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: auto;
+}
+
+thead {
+    background-color: #EAA129;
+    color: white;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+th {
+    font-size: 1.1em;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
