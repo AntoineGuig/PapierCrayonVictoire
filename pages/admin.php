@@ -39,7 +39,7 @@ if (!empty($nomClub) && !empty($adresse) && !empty($numTelephone) && !empty($nom
         <?php include '../includes/header.php'; ?>
     </header>
 
-    <div class="content-body">
+    <div class="content-body align_center">
         <p>Bienvenue sur la page admin</p>
         <div id="recap-container"></div>
         <h1>Création des clubs</h1>
