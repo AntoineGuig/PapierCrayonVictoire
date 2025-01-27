@@ -62,7 +62,7 @@
       }
 
       if (isset($_POST['admin'])) {
-        header("Location:/pages/admin.php");
+        header("Location:../pages/admin.php");
       }
       ?>
       <span class="deconnexion">
