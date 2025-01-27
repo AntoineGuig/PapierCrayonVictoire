@@ -33,7 +33,7 @@
             <i class='bx bxs-chevron-down htmlcss-arrow arrow'></i>
             <ul class="htmlCss-sub-menu sub-menu">
               <li><a href="concoursEnCours.php">Concours en cours</a></li>
-              <li><a href="futurConcours.php">Futurs concours</a></li>
+              <li><a href="futurConcours.php">Futur concours</a></li>
               <li><a href="historiqueConcours.php">Historique des concours</a></li>
             </ul>
           </li>
