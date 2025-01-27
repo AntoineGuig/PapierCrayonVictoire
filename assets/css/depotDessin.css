@@ -1,0 +1,56 @@
+/* Variables pour les couleurs */
+:root {
+  --orange-primary: #ff6b00;
+  --orange-light: #ff8533;
+  --orange-dark: #cc5500;
+  --white: #ffffff;
+  --gray-light: #f5f5f5;
+  --gray-dark: #333333;
+}
+
+/* Style général de la page */
+h1 {
+  text-align: center;
+  margin-top: 2rem;
+}
+/* Style du formulaire */
+.formulaireAjout {
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.formulaireAjout label {
+  color: #333333;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.textArea {
+  width: 100%;
+  min-height: 150px;
+  padding: 0.8rem;
+  border: 2px solid #ff8533;
+  border-radius: 4px;
+  resize: vertical;
+  max-height: 300px;
+}
+
+input[type="file"] {
+  border: 2px solid #ff8533;
+  padding: 0.5rem;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.btnEnvoie {
+  background-color: #ff6b00;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+}

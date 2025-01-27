@@ -9,11 +9,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validation de base
     if (!empty($theme) && !empty($dateDebut) && !empty($dateFin)) {
-        $stmt = $pdo->prepare("INSERT INTO Concours (theme, dateDebut, dateFin, statut) VALUES (?, ?, ?, 'pas commencé');");
-        if ($stmt->execute([$theme, $dateDebut, $dateFin])) {
-            $message = "Création du concours !";
+        if ($dateDebut > $dateFin) {
+            $message = "La date de début doit être inférieure à la date de fin.";
         } else {
-            $message = "Une erreur est survenue lors de la création.";
+            $stmt = $pdo->prepare("INSERT INTO Concours (theme, dateDebut, dateFin, statut) VALUES (?, ?, ?, 'pas commencé');");
+            if ($stmt->execute([$theme, $dateDebut, $dateFin])) {
+                $message = "Création du concours !";
+            } else {
+                $message = "Une erreur est survenue lors de la création.";
+            }
         }
     }
 } else {
