@@ -15,9 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $numConcours = $numConcours->fetch(PDO::FETCH_ASSOC);
         $numConcours = $numConcours['numConcours'];
 
-        $clubUtilisateur = $pdo->query("SELECT count(numCompetiteur) as nbUtilisateur FROM competiteurparticipeconcours WHERE numCompetiteur = " . $_SESSION['numUtilisateur'] . " AND numConcours = " . $numConcours);
+        $clubUtilisateur = $pdo->query("SELECT count(numCompetiteur) as nbUtilisateur FROM CompetiteurParticipeConcours WHERE numCompetiteur = " . $_SESSION['numUtilisateur'] . " AND numConcours = " . $numConcours);
         $clubUtilisateur = $clubUtilisateur->fetch(PDO::FETCH_ASSOC);
-
 
         $qteDessins = $pdo->query("SELECT COUNT(*) FROM Dessin WHERE numCompetiteur = " . $_SESSION['numUtilisateur'] . " AND numConcours = " . $numConcours);
         $qteDessins = $qteDessins->fetch(PDO::FETCH_ASSOC);
@@ -50,16 +49,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/register.css" />
+    <link rel="stylesheet" href="../assets/css/register.css"/>
     <title>Inscription</title>
 
 </head>
 
 <body>
-    <?php if (isset($message)): ?>
-        <p><?php echo $message; ?></p>
-    <?php endif; ?>
-    <a href="../pages/deposerDessin.php">Retour à la page de dépôt des dessins.</a>
+<?php if (isset($message)): ?>
+    <p><?php echo $message; ?></p>
+<?php endif; ?>
+<a href="../pages/deposerDessin.php">Retour à la page de dépôt des dessins.</a>
 </body>
 
 </html>
