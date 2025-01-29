@@ -15,15 +15,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $numConcours = $numConcours->fetch(PDO::FETCH_ASSOC);
         $numConcours = $numConcours['numConcours'];
 
-        $clubUtilisateur = $pdo->query("SELECT count(numCompetiteur) as nbUtilisateur FROM CompetiteurParticipeConcours WHERE numCompetiteur = " . $_SESSION['numUtilisateur'] . " AND numConcours = " . $numConcours);
+        $clubUtilisateur = ("SELECT COUNT(numCompetiteur) as nbUtilisateur FROM CompetiteurParticipeConcours WHERE numCompetiteur = :numUtilisateur AND numConcours = :numConcours");
+        $clubUtilisateur = $pdo->prepare($clubUtilisateur);
+        $clubUtilisateur->bindParam(':numUtilisateur', $_SESSION['numUtilisateur']);
+        $clubUtilisateur->bindParam(':numConcours', $numConcours);
+        $clubUtilisateur->execute();
         $clubUtilisateur = $clubUtilisateur->fetch(PDO::FETCH_ASSOC);
 
-        $qteDessins = $pdo->query("SELECT COUNT(*) FROM Dessin WHERE numCompetiteur = " . $_SESSION['numUtilisateur'] . " AND numConcours = " . $numConcours);
-        $qteDessins = $qteDessins->fetch(PDO::FETCH_ASSOC);
-        $qteDessins = $qteDessins['COUNT(*)'];
+        $nbDessins = ("SELECT COUNT(*) as nbDessins FROM Dessin WHERE numCompetiteur = :numUtilisateur AND numConcours = :numConcours");
+        $nbDessins = $pdo->prepare($nbDessins);
+        $nbDessins->bindParam(':numUtilisateur', $_SESSION['numUtilisateur']);
+        $nbDessins->bindParam(':numConcours', $numConcours);
+        $nbDessins->execute();
+        $nbDessins = $nbDessins->fetch(PDO::FETCH_ASSOC);
+        $nbDessins = $nbDessins['nbDessins'];
 
         if ($clubUtilisateur['nbUtilisateur'] != 0) {
-            if ($qteDessins < 3) {
+            if ($nbDessins < 3) {
                 $stmt = $pdo->prepare("INSERT INTO Dessin (numCompetiteur, numConcours, commentaire, dateRemise, leDessin) VALUES (?, ?, ?, DATE(NOW()), ?)");
                 if ($stmt->execute([$_SESSION['numUtilisateur'], $numConcours, $commentaire, $chemin])) {
 
@@ -49,16 +57,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/register.css"/>
+    <link rel="stylesheet" href="../assets/css/register.css" />
     <title>Inscription</title>
 
 </head>
 
 <body>
-<?php if (isset($message)): ?>
-    <p><?php echo $message; ?></p>
-<?php endif; ?>
-<a href="../pages/deposerDessin.php">Retour à la page de dépôt des dessins.</a>
+    <?php if (isset($message)): ?>
+        <p><?php echo $message; ?></p>
+    <?php endif; ?>
+    <a href="../pages/deposerDessin.php">Retour à la page de dépôt des dessins.</a>
 </body>
 
 </html>

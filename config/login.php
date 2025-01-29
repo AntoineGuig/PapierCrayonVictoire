@@ -20,7 +20,6 @@ if (!empty($login) && !empty($password)) {
         $_SESSION['numClub'] = $user['numClub'];
         $_SESSION['dateDeNaissance'] = $user['dateDeNaissance'];
         $_SESSION['sexe'] = $user['sexe'];
-        var_dump($_SESSION);
         header('Location: ../pages/accueil.php');
         exit();
     } else {
@@ -29,4 +28,3 @@ if (!empty($login) && !empty($password)) {
 } else {
     $error = "Veuillez remplir tous les champs.";
 }
-?>
